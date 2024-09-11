@@ -11,3 +11,7 @@ applications:
       build: |
         curl -L -o kestra.zip https://api.kestra.io/v1/versions/download
         unzip kestra.zip
+routes:
+    "https://{default}/":
+        type: upstream
+        upstream: kestra:http
