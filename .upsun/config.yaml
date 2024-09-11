@@ -9,5 +9,5 @@ applications:
         start: ./kestra-0.18.5 server standalone --config kestra.yaml
     hooks:
       build: |
-        curl -L -o kestra.tar.gz https://api.kestra.io/v1/versions/download
-        tar -xzvf kestra.tar.gz
+        curl -L -o kestra.zip https://api.kestra.io/v1/versions/download
+        unzip kestra.zip
