@@ -4,17 +4,22 @@ applications:
     type: 'java:21'
     web:
       commands:
-        start: bin/kestra-latest server standalone --config ./kestra.yaml --port=$PORT
+        start: kestra/kestra-latest server standalone --config ./kestra/kestra.yaml --port=$PORT
     mounts:
       kestra-storage:
         source: storage
         source_path: kestra-storage
+    relationships:
+      database: "postgresql:postgresql"
 
 services:
   postgresql:
     type: postgresql:16
 
 routes:
+  "https://{default}/":
+    type: upstream
+    upstream: kestra:http
   "https://{default}/ui/":
     type: upstream
     upstream: kestra:http
