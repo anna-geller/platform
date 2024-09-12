@@ -1,9 +1,8 @@
 # Top-level key, which contains configurations for all app containers.
 applications:
-  # The app's name, which must be unique within the project. $PORT
+  # The app's name, which must be unique within the project.
   kestra:
     type: 'java:21'
-    # The app's configuration when it's exposed to the web.
     web:
       commands:
         start: ./kestra-0.18.5 server standalone --config kestra.yaml --port=8888
