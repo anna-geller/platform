@@ -190,7 +190,7 @@ kestra:
   storage:
     type: local
     local:
-      base-path: "./storage"
+      base-path: "./kestra-storage"
   queue:
     type: h2
   repository:
